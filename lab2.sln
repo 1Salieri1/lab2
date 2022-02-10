@@ -11,7 +11,7 @@ namespace _LR
             string s;
             double x, y;
             StreamWriter f = new StreamWriter(@"C:\Users\Galieri\Desktop\out.txt");
-               StreamReader f1 = new StreamReader(@"C:\Users\Galieri\Desktop\in.txt");
+              StreamReader f1 = new StreamReader(@"C:\Users\Galieri\Desktop\in.txt");
             string stars = new string('*', 25);
             f.WriteLine($" Таблиця значень \n {stars}");
         metka:
@@ -19,7 +19,7 @@ namespace _LR
             if (s == null) goto metka1;
             x = double.Parse(s);
             y = (+Math.Pow(x, 2) - (5 * x) + 4) / (+Math.Pow(x, 2) + 1);
-            string str =($"* x = {x:f3} * y = {y:f3} *\n {stars} ");
+            string str = ($"* x = {x:f3} * y = {y:f3} *\n {stars} ");
             f.WriteLine(str);
             goto metka;
         metka1:
