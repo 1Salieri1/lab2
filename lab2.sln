@@ -1,25 +1,33 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab2", "lab2\lab2.csproj", "{6A00F637-85CE-4B81-AB8F-9868A2A49BF5}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A00F637-85CE-4B81-AB8F-9868A2A49BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A00F637-85CE-4B81-AB8F-9868A2A49BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A00F637-85CE-4B81-AB8F-9868A2A49BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A00F637-85CE-4B81-AB8F-9868A2A49BF5}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E4682828-954C-478C-B225-1936E2E90613}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Text;
+using System.IO;
+
+namespace _LR
+{
+    class Program
+    {
+        static void Main()
+        {
+            string s;
+            double x, y;
+            StreamWriter f = new StreamWriter(@"C:\Users\Galieri\Desktop\out.txt");
+               StreamReader f1 = new StreamReader(@"C:\Users\Galieri\Desktop\in.txt");
+            string stars = new string('*', 25);
+            f.WriteLine($" Таблиця значень \n {stars}");
+        metka:
+            s = f1.ReadLine();
+            if (s == null) goto metka1;
+            x = double.Parse(s);
+            y = (+Math.Pow(x, 2) - (5 * x) + 4) / (+Math.Pow(x, 2) + 1);
+            string str =($"* x = {x:f3} * y = {y:f3} *\n {stars} ");
+            f.WriteLine(str);
+            goto metka;
+        metka1:
+            string st1 = ($" Склав Коротич Вадим Сергеевич {s} \n");
+            f.WriteLine(st1);
+            f.Close();
+            f1.Close();
+
+        }
+    }
+}
